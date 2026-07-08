@@ -13,11 +13,11 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    background:linear-gradient(135deg,#f7abae,#fad0c4);
 }
 
 .container{
-    background:white;
+    background:#ff9a9e;
     padding:40px;
     border-radius:25px;
     text-align:center;
@@ -50,13 +50,17 @@ h1{
 <h1>❤️ Nasze Spotkanie❤️</h1>
 
 <div class="info">
-<b>Forma randki:</b>
-<p id="title"></p>
+    <p id="title"></p>
+</div>
+
+<div class="info" id="randkaBox" style="display:none;">
+    <b>Randka:</b>
+    <p id="Randka"></p>
 </div>
 
 <div class="info">
-<b>Termin:</b>
-<p id="date"></p>
+    <b>Termin:</b>
+    <p id="date"></p>
 </div>
 
 <video

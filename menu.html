@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wybierz restaurację</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+            padding:20px;
+        }
+
+        .container{
+            background:#ff9a9e;
+            width:100%;
+            max-width:900px;
+            padding:40px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 10px 30px rgba(0,0,0,.2);
+        }
+
+        h1{
+            margin-bottom:15px;
+            color:#333;
+            font-size:2.2rem;
+        }
+
+        p{
+            margin-bottom:30px;
+            color:#666;
+            font-size:1.1rem;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+            gap:20px;
+        }
+
+        .tile{
+            background:#ffe6e6;
+            border:3px solid transparent;
+            border-radius:18px;
+            padding:25px;
+            cursor:pointer;
+            transition:.25s;
+            user-select:none;
+        }
+
+        .tile:hover{
+            transform:translateY(-5px);
+            background:#ffd3d3;
+        }
+
+        .tile.selected{
+            border-color:#ff4d6d;
+            background:#ffc2cb;
+        }
+
+        .emoji{
+            font-size:48px;
+            margin-bottom:12px;
+        }
+
+        .name{
+            font-size:1.2rem;
+            font-weight:bold;
+        }
+
+        button{
+            margin-top:35px;
+            padding:15px 40px;
+            border:none;
+            border-radius:12px;
+            background:#ff4d6d;
+            color:white;
+            font-size:1.1rem;
+            cursor:pointer;
+            transition:.2s;
+        }
+
+        button:hover{
+            background:#ff9a9e;
+        }
+
+        @media(max-width:600px){
+
+            h1{
+                font-size:1.8rem;
+            }
+
+            .container{
+                padding:25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🍽️ Wybierz interesującą Cię restaurację</h1>
+    <p>Kliknij rodzaj kuchni, który najbardziej Ci odpowiada.</p>
+
+  <div class="grid">
+
+    <div class="tile" onclick="wybierzRestauracje('Kuchnia Polska')">
+        <div class="emoji">🥟</div>
+        <div class="name">Kuchnia Polska</div>
+    </div>
+
+    <div class="tile" onclick="wybierzRestauracje('Sushi')">
+        <div class="emoji">🍣</div>
+        <div class="name">Sushi</div>
+    </div>
+
+    <div class="tile" onclick="wybierzRestauracje('Kuchnia Azjatycka')">
+        <div class="emoji">🥡</div>
+        <div class="name">Kuchnia Azjatycka</div>
+    </div>
+
+    <div class="tile" onclick="wybierzRestauracje('Kuchnia Włoska')">
+        <div class="emoji">🍕</div>
+        <div class="name">Kuchnia Włoska</div>
+    </div>
+
+    <div class="tile" onclick="wybierzRestauracje('Kuchnia Meksykańska')">
+        <div class="emoji">🌮</div>
+        <div class="name">Kuchnia Meksykańska</div>
+    </div>
+
+    <div class="tile" onclick="wybierzRestauracje('Burgery')">
+        <div class="emoji">🍔</div>
+        <div class="name">Burgery</div>
+    </div>
+
+    <div class="tile" onclick="wybierzRestauracje('Steki i Grill')">
+        <div class="emoji">🥩</div>
+        <div class="name">Steki i Grill</div>
+    </div>
+
+    <div class="tile" onclick="wybierzRestauracje('Wegetariańska')">
+        <div class="emoji">🥗</div>
+        <div class="name">Wegetariańska</div>
+    </div>
+
+</div>
+
+    <button onclick="nextPage()">Dalej ➜</button>
+<p id="result" style="color:black(0, 0, 0); margin-top:15px;"></p>
+</div>
+
+<script>
+
+let selected=null;
+
+const tiles=document.querySelectorAll(".tile");
+
+tiles.forEach(tile=>{
+
+    tile.addEventListener("click",()=>{
+
+        tiles.forEach(t=>t.classList.remove("selected"));
+
+        tile.classList.add("selected");
+
+        selected=tile.querySelector(".name").textContent;
+
+    });
+
+});
+
+function nextPage() {
+
+    if (!selected) {
+        document.getElementById("result").innerHTML =
+            "Najpierw wybierz jedzonko 😊";
+        return; // zatrzymuje wykonywanie funkcji
+    }
+
+    // tutaj wpisz nazwę kolejnej strony
+    window.location.href = "termin.html";
+}
+
+</script>
+
+</body>
+</html>
+

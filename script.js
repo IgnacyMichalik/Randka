@@ -28,7 +28,7 @@ function noAnswer(){
     const button = document.getElementById("noButton");
 
     document.getElementById("message").innerHTML =
-    "❌ Nie trafiłaś! Spróbuj jeszcze raz 😉";
+    "❌ No serio zobacz na tego smutnego słodziaka 😉";
 
     document.getElementById("funnyImage").style.display = "block";
 
@@ -91,7 +91,11 @@ function wybierzRandke(nazwa){
 
     localStorage.setItem("randka", nazwa);
 
-    window.location.href = "termin.html";
+    if(nazwa === "Kolacja w restauracji"){
+        window.location.href = "menu.html";
+    }else{
+        window.location.href = "termin.html";
+    }
 
 }
 window.addEventListener("load", function(){
@@ -102,7 +106,7 @@ window.addEventListener("load", function(){
 
         const randka = localStorage.getItem("randka");
 
-        title.innerHTML = + randka;
+        title.innerHTML = + randka ;
 
     }
 
@@ -117,7 +121,7 @@ window.addEventListener("load", function () {
 
         const randka = localStorage.getItem("randka");
 
-        title.innerHTML =  randka + "</b>";
+        title.innerHTML =  randka + "</br>";
 
     }
 
@@ -143,9 +147,13 @@ function saveDate() {
     const date = document.getElementById("datePicker").value;
 
     if (date === "") {
-        alert("Najpierw wybierz termin ❤️");
-        return;
+        
+    
+        document.getElementById("Fdate").innerHTML =
+            "Najpierw wybierz date 😊";
+        return; // zatrzymuje wykonywanie funkcji
     }
+    
 
     // jeśli wcześniej wybrałeś formę randki
     localStorage.setItem("date", date);
@@ -155,3 +163,29 @@ function saveDate() {
 
     window.location.href = "podsumowanie.html";
 }
+
+
+
+
+
+
+
+function wybierzRandke(nazwa){
+
+    localStorage.setItem("randka", nazwa);
+
+
+    if(nazwa === "Kolacja w restauracji"){
+
+        window.location.href = "menu.html";
+
+    }else{
+
+        window.location.href = "termin.html";
+
+    }
+
+}
+
+
+s

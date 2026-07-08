@@ -36,7 +36,7 @@ body{
     background: #ff9a9e;
     padding: 50px;
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,.2);
+    box-shadow: 0 0 200px rgba(0,0,0,.2);
 
     box-sizing: border-box;
 }
