@@ -39,7 +39,7 @@ body{
     border-radius:20px;
 
     box-shadow:0 0 20px rgba(0,0,0,.2);
-
+    font-size: 1.2rem; /* powiększa cały tekst */
 }
 .textarea{
 color: #ff4b6e;
@@ -160,4 +160,15 @@ button:hover{
 img {
     position: relative;
     z-index: 1;
+}
+.answers {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* na telefonie przejdą do kolejnego wiersza */
+}
+
+.answers label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
