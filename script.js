@@ -4,8 +4,8 @@ function checkPassword(){
 
     const password = document.getElementById("password").value;
 
-    if(password === "TY"){
-        window.location.href = "randka.html";
+    if(password === "TY"|| "ty" || "Ty"){
+        window.location.href = "zagadka2.html";
     }
 
     else{
@@ -102,8 +102,7 @@ window.addEventListener("load", function(){
 
         const randka = localStorage.getItem("randka");
 
-        title.innerHTML =
-        "Dziękuję za wybranie ❤️<br>" + randka;
+        title.innerHTML = + randka;
 
     }
 
@@ -118,7 +117,7 @@ window.addEventListener("load", function () {
 
         const randka = localStorage.getItem("randka");
 
-        title.innerHTML = "❤️ Dziękuję za wybranie:<br><br><b>" + randka + "</b>";
+        title.innerHTML =  randka + "</b>";
 
     }
 
@@ -141,15 +140,18 @@ window.addEventListener("load", function () {
 
 function saveDate() {
 
-    const data = document.getElementById("datePicker").value;
+    const date = document.getElementById("datePicker").value;
 
-    localStorage.setItem("data", data);
+    if (date === "") {
+        alert("Najpierw wybierz termin ❤️");
+        return;
+    }
 
-    alert(
-        "Super! ❤️\n\n" +
-        "Wybrana randka: " + localStorage.getItem("randka") +
-        "\nTermin: " + data
-    );
+    // jeśli wcześniej wybrałeś formę randki
+    localStorage.setItem("date", date);
 
-    // Tutaj później dodamy wysyłkę do Firebase
+    // np. jeśli masz zmienną z wybraną formą
+    // localStorage.setItem("type", selectedDateType);
+
+    window.location.href = "podsumowanie.html";
 }

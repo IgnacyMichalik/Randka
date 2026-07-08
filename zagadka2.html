@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kolejna zagadka ❤️</title>
+
+
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>🧩 Kolejna zagadka</h1>
+
+<div class="quote">
+„Kto walczy z potworami, ten niechaj baczy,
+by sam przy tym nie stał się potworem.
+A jeśli długo patrzysz w otchłań, ...”
+</div>
+
+<div class="answers">
+
+<label>
+<input type="radio" name="answer" value="1">
+...to otchłań zapyta masz jakiś problem?
+</label>
+
+<label>
+<input type="radio" name="answer" value="2">
+...zobaczysz własne odbicie.
+</label>
+
+<label>
+<input type="radio" name="answer" value="3">
+...to otchłań zaczyna patrzeć na ciebie.
+</label>
+
+<label>
+<input type="radio" name="answer" value="4">
+...odnajdziesz odpowiedzi.
+</label>
+
+</div>
+
+<br>
+
+<button onclick="checkAnswer()">Sprawdź ❤️</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function checkAnswer(){
+
+    const answer = document.querySelector('input[name="answer"]:checked');
+
+     if(!answer){
+        document.getElementById("result").innerHTML =
+        "Najpierw wybierz odpowiedź 😊";
+    }
+
+    if(answer.value === "3"){
+
+        document.getElementById("result").innerHTML =
+        "✅ Brawo! To poprawna odpowiedź.";
+
+        setTimeout(function(){
+
+            window.location.href="randka.html";
+
+        },1500);
+
+    }else{
+
+        document.getElementById("result").innerHTML =
+        "❌ Niestety, spróbuj jeszcze raz.";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
