@@ -30,6 +30,8 @@ body{
 
 .container{
 
+    width: 80%;
+
     text-align:center;
 
     background:#ff9a9e;
