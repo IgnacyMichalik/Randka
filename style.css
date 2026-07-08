@@ -27,22 +27,20 @@ body{
     margin-top:25px;
 
 }
-
 .container{
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
 
-    width: 80%;
+    text-align: center;
+    background: #ff9a9e;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,.2);
 
-    text-align:center;
-
-    background:#ff9a9e;
-
-    padding:50px;
-
-    border-radius:20px;
-
-    box-shadow:0 0 20px rgba(0,0,0,.2);
-    font-size: 1.2rem; /* powiększa cały tekst */
+    box-sizing: border-box;
 }
+
 .textarea{
 color: #ff4b6e;
  border-radius: 10px;
