@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <title>Wybór randki</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Super! ❤️</h1>
+
+    <p>Wybierz, na jaką randkę masz ochotę.</p>
+
+   <button onclick="wybierzRandke('Kolacja w restauracji')">
+    🍕 Kolacja w restauracji
+</button><br>
+
+<button onclick="wybierzRandke('Kawiarnia')">
+    ☕ Kawiarnia
+</button><br>
+
+<button onclick="wybierzRandke('Kino')">
+    🎬 Kino
+</button><br>
+
+<button onclick="wybierzRandke('Spacer o zachodzie słońca')">
+    🌅 Spacer
+</button><br>
+
+<button onclick="wybierzRandke('Kręgle')">
+    🎳 Kręgle
+</button><br>
+
+<button onclick="wybierzRandke('Lody i spacer')">
+    🍦 Lody i spacer
+</button><br>
+   
+
+<button onclick="showOther()">✨ Mam swój pomysł</button>
+
+<div id="otherBox" class="hidden">
+
+    <h2>💡 Opowiedz mi o swoim pomyśle</h2>
+
+    <input
+        type="text"
+        id="otherDate"
+        placeholder="Np. piknik nad jeziorem 🌅">
+
+    <br><br>
+
+    <button onclick="sendOther()">
+        Wyślij ❤️
+    </button>
+
+</div>
+<br>
+
+    
+
+</div>
+
+</body>
+</html>
