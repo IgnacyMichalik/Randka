@@ -1,10 +1,8 @@
-
-
 function checkPassword(){
 
     const password = document.getElementById("password").value;
 
-    if(password === "TY"|| "ty" || "Ty"){
+  if (password === "TY" || password === "Ty" || password === "ty") {
         window.location.href = "zagadka2.html";
     }
 
@@ -57,18 +55,8 @@ function showOther(){
     document.getElementById("otherBox").style.display = "block";
 
 }
-function wybierzRandke(nazwa){
 
-    odpowiedz.randka = nazwa;
 
-    console.log(odpowiedz);
-
-}
-function showOther(){
-
-    document.getElementById("otherBox").style.display = "block";
-
-}
 
 function sendOther(){
      const propozycja = document.getElementById("otherDate").value;
@@ -112,6 +100,9 @@ window.addEventListener("load", function(){
 
 });
 
+
+
+
 // Pokazanie wybranej randki
 window.addEventListener("load", function () {
 
@@ -141,51 +132,63 @@ window.addEventListener("load", function () {
     });
 
 });
-
-function saveDate() {
+async function saveDate(){
 
     const date = document.getElementById("datePicker").value;
 
-    if (date === "") {
-        
-    
+    if(date === ""){
         document.getElementById("Fdate").innerHTML =
-            "Najpierw wybierz date 😊";
-        return; // zatrzymuje wykonywanie funkcji
-    }
-    
+        "Najpierw wybierz datę 😊";
 
-    // jeśli wcześniej wybrałeś formę randki
+        return;
+    }
+
+
     localStorage.setItem("date", date);
 
-    // np. jeśli masz zmienną z wybraną formą
-    // localStorage.setItem("type", selectedDateType);
 
-    window.location.href = "podsumowanie.html";
+    await window.zapiszDoFirebase();
+
+
+    window.location.href="podsumowanie.html";
+
 }
 
 
+async function zapiszDoFirebase(){
+
+    const dane = {
+
+        randka: localStorage.getItem("randka"),
+        restauracja: localStorage.getItem("restauracja"),
+        termin: localStorage.getItem("date"),
+        dataDodania: new Date()
+
+    };
 
 
+    try{
 
+        await addDoc(collection(db,"randki"), dane);
 
+        console.log("Zapisano");
 
-function wybierzRandke(nazwa){
+    }
+    catch(e){
 
-    localStorage.setItem("randka", nazwa);
-
-
-    if(nazwa === "Kolacja w restauracji"){
-
-        window.location.href = "menu.html";
-
-    }else{
-
-        window.location.href = "termin.html";
+        console.error(e);
 
     }
 
 }
 
 
-s
+window.zapiszDoFirebase = zapiszDoFirebase;
+
+console.log("firebaseFunctions działa");
+
+
+
+
+
+

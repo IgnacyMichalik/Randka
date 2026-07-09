@@ -1,48 +1,169 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
+    <script src="script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<title>Dane użytkownika</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-    <title>Zaproszenie ❤️</title>
+body{
+    background:linear-gradient(135deg,#0f4c81,#4da3ff);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.logo{
+    display:block;
+    width:300px;
+    height:auto;
+    margin:0 auto 1px auto;
+}
+.container{
+    width:400px;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+    text-align:center;
+}
 
-    <link rel="stylesheet" href="style.css">
+h1{
+    color:#0f4c81;
+    margin-bottom:25px;
+}
+
+.inputBox{
+    margin-bottom:18px;
+    text-align:left;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    color:#0f4c81;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:2px solid #4da3ff;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+}
+
+input:focus{
+    border-color:#0f4c81;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:#0f4c81;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#08365c;
+}
+
+#loading{
+    margin-top:20px;
+    color:#0f4c81;
+    font-weight:bold;
+    display:none;
+}
+</style>
 
 </head>
-
 <body>
 
-    <div class="container">
 
-        <div class="card">
 
-            <h1>🔒 Dostęp tylko dla jednej osoby</h1>
 
-            <p class="subtitle">
-                Aby przejść dalej musisz odpowiedzieć na jedno pytanie...
-            </p>
+<div class="container">
+<img src="logo.png" alt="Logo" class="logo">
+<h1>Podaj swoje dane</h1>
 
-            <h2>🐰 Jak ma na imię Twój królik?</h2>
+<div class="inputBox">
+<label>Imię</label>
+<input type="text" id="name">
+</div>
 
-            <input
-                type="text"
-                id="password"
-                placeholder="Wpisz odpowiedź">
+<div class="inputBox">
+<label>Nazwisko</label>
+<input type="text" id="surname">
+</div>
 
-            <button onclick="checkPassword()">
-                Dalej ❤️
-            </button>
+<div class="inputBox">
+    <label>Data urodzenia</label>
+    <input type="text" id="birth" placeholder="Wybierz datę">
+</div>
 
-            <p id="error"></p>
+<button onclick="nextPage()">Dalej</button>
 
-        </div>
+<p id="loading">Trwa przechodzenie...</p>
 
-    </div>
+</div>
 
-    <script src="script.js"></script>
+<script>
+
+function nextPage(){
+
+    const name=document.getElementById("name").value.trim();
+    const surname=document.getElementById("surname").value.trim();
+    const birth=document.getElementById("birth").value;
+
+    if(name==="" || surname==="" || birth===""){
+        alert("Uzupełnij wszystkie pola.");
+        return;
+    }
+
+    sessionStorage.setItem("name",name);
+    sessionStorage.setItem("surname",surname);
+    sessionStorage.setItem("birth",birth);
+
+    document.getElementById("loading").style.display="block";
+
+    setTimeout(function(){
+        window.location.href="joke.html";
+    },2000);
+
+}
+
+</script>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+<script>
+
+flatpickr("#birth",{
+    dateFormat:"d.m.Y",
+    maxDate:"today",
+    locale:{
+        firstDayOfWeek:1
+    }
+});
+
+
+
+</script>
 </html>
