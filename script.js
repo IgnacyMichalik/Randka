@@ -108,6 +108,23 @@ window.addEventListener("load", function () {
 
     const title = document.getElementById("title");
 
+
+    const date = localStorage.getItem("date");
+    const type = localStorage.getItem("type");
+
+    const dateElement = document.getElementById("date");
+    const typeElement = document.getElementById("type");
+
+
+    if(dateElement){
+        dateElement.textContent = date || "Brak daty";
+    }
+
+
+    if(typeElement){
+        typeElement.textContent = type || "";
+    }
+
     if (title) {
 
         const randka = localStorage.getItem("randka");
