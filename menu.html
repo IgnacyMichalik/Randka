@@ -187,13 +187,19 @@ tiles.forEach(tile=>{
 
 function nextPage() {
 
+
     if (!selected) {
+
         document.getElementById("result").innerHTML =
-            "Najpierw wybierz jedzonko 😊";
-        return; // zatrzymuje wykonywanie funkcji
+        "Najpierw wybierz jedzonko 😊";
+
+        return;
     }
 
-    // tutaj wpisz nazwę kolejnej strony
+
+    localStorage.setItem("restauracja", selected);
+
+
     window.location.href = "termin.html";
 }
 
